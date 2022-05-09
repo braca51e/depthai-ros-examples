@@ -190,6 +190,7 @@ elseif( CATKIN_DEVEL_PREFIX OR CATKIN_BUILD_BINARY_PACKAGE )
   dai_add_node(crop_control_service ros1_src/crop_control_service.cpp)
   dai_add_node(mobilenet_node ros1_src/mobilenet_publisher.cpp)
   dai_add_node(rgb_node ros1_src/rgb_publisher.cpp)
+  dai_add_node(rgb_cloud_node ros1_src/rgb_publiser_cloud.cpp)
   dai_add_node(rgb_stereo_node ros1_src/rgb_stereo_node.cpp)
   dai_add_node(rgb_subscriber_node ros1_src/rgb_video_subscriber.cpp)
   # dai_add_node(stereo_mimic_node ros1_src/stereo_mimic_node.cpp)
@@ -208,6 +209,7 @@ elseif( CATKIN_DEVEL_PREFIX OR CATKIN_BUILD_BINARY_PACKAGE )
           crop_control_service
           mobilenet_node
           rgb_node
+          rgb_cloud_node
           rgb_stereo_node
           rgb_subscriber_node
           # stereo_mimic_node
