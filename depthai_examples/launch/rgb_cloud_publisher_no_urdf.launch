@@ -58,8 +58,5 @@
         <remap from="points" to="/stereo_inertial_publisher/stereo/points"/>
     </node>
 
-  <node if="$(eval arg('depth_aligned') == true)" type="rviz" name="rviz" pkg="rviz" args="-d $(find depthai_examples)/rviz/stereoInertialDepthAlign.rviz" />
-  <node if="$(eval arg('depth_aligned') == false)" type="rviz" name="rviz" pkg="rviz" args="-d $(find depthai_examples)/rviz/stereoInertialROS1.rviz" />
-
 </launch>
 
