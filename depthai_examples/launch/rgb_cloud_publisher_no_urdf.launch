@@ -2,7 +2,7 @@
 <launch>
     <!-- <args for urdf/> -->
     <arg name="camera_model"         default="OAK-D"       /> <!-- 'zed' or 'zedm' -->
-    <arg name="tf_prefix"            default="oak"         />
+    <arg name="tf_prefix"            default="oak_d"         />
     <arg name="mode"                 default="depth"       />
 
     <arg name="lrcheck"               default="true"       /> 
@@ -43,19 +43,12 @@
         <remap from="image" to="/rgb_cloud_node/stereo/image"/>
     </node>
 
-    <node if="$(eval arg('depth_aligned') == true)" pkg="nodelet" type="nodelet" name="depth_image_to_rgb_pointcloud"
+    <node pkg="nodelet" type="nodelet" name="depth_image_to_rgb_pointcloud"
         args="load depth_image_proc/point_cloud_xyzrgb nodelet_manager">
         <remap from="rgb/camera_info" to="/rgb_cloud_node/color/camera_info"/>
         <remap from="rgb/image_rect_color" to="/rgb_cloud_node/color/image"/>
         <remap from="depth_registered/image_rect" to="/rgb_cloud_node/stereo/image"/>    
         <remap from="depth_registered/points" to="/rgb_cloud_node/stereo/points"/>
-    </node>
-
-    <node if="$(eval arg('depth_aligned') == false)" pkg="nodelet" type="nodelet" name="depth_image_to_pointcloud"
-        args="load depth_image_proc/point_cloud_xyz nodelet_manager">
-        <remap from="camera_info" to="/rgb_cloud_node/stereo/camera_info"/>
-        <remap from="image_rect" to="/rgb_cloud_node/stereo/image"/>    
-        <remap from="points" to="/rgb_cloud_node/stereo/points"/>
     </node>
 
 </launch>
