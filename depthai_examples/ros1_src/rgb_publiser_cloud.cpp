@@ -127,7 +127,7 @@ std::tuple<dai::Pipeline, int, int> createPipeline(bool enableDepth,
 }
 
 int main(int argc, char** argv) {
-    ros::init(argc, argv, "stereo_inertial_node");
+    ros::init(argc, argv, "rgb_cloud_node");
     ros::NodeHandle pnh("~");
 
     std::string tfPrefix, mode;
