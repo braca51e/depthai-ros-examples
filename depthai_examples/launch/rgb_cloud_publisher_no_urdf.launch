@@ -2,7 +2,7 @@
 <launch>
     <!-- <args for urdf/> -->
     <arg name="camera_model"         default="OAK-D"       /> <!-- 'zed' or 'zedm' -->
-    <arg name="tf_prefix"            default="oak-d"         />
+    <arg name="tf_prefix"            default="oak_d"         />
     <arg name="mode"                 default="depth"       />
 
     <arg name="lrcheck"               default="true"       /> 
