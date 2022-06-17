@@ -48,7 +48,8 @@
         <remap from="rgb/camera_info" to="/rgb_cloud_node/color/camera_info"/>
         <remap from="rgb/image_rect_color" to="/rgb_cloud_node/color/image"/>
         <remap from="depth_registered/image_rect" to="/rgb_cloud_node/stereo/image"/>    
-        <remap from="depth_registered/points" to="/rgb_cloud_node/stereo/points"/>
+        <remap from="cloud" to="/rgb_cloud_node/stereo/voxel cloud" />
+        <param name="voxel size" value="0.01" />
     </node>
 
 </launch>
