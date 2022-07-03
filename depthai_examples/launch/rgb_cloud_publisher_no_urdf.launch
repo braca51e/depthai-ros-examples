@@ -10,6 +10,7 @@
     <arg name="subpixel"              default="true"       />
     <arg name="rectify"               default="true"       />
     <arg name="depth_aligned"         default="true"      />
+    <arg name="publish_point_cloud"   default="true"      />
      <!-- see https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#currently-configurable-blocks for possible combination of optionf for higher fps-->
     <arg name="stereo_fps"            default="15"         />
     <arg name="confidence"            default="200"        />
@@ -46,7 +47,7 @@
         <remap from="image" to="/rgb_cloud_node/stereo/image"/>
     </node>
 
-    <node if="$(eval arg('depth_aligned') == true)" pkg="nodelet" type="nodelet" name="depth_image_to_rgb_pointcloud"
+    <node if="$(eval arg('publish_point_cloud') == true)" pkg="nodelet" type="nodelet" name="depth_image_to_rgb_pointcloud"
         args="load depth_image_proc/point_cloud_xyzrgb nodelet_manager">
         <remap from="rgb/camera_info" to="/rgb_cloud_node/color/camera_info"/>
         <remap from="rgb/image_rect_color" to="/rgb_cloud_node/color/image"/>
