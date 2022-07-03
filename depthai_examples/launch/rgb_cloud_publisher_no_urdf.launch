@@ -27,6 +27,9 @@
         <param name="subpixel"              value="$(arg subpixel)"/>
         <param name="rectify"               value="$(arg rectify)" />
         <param name="depth_aligned"         value="$(arg depth_aligned)" />
+        
+        
+        
         <param name="stereo_fps"            value="$(arg stereo_fps)" />
         <param name="confidence"            value="$(arg confidence)" />
         <param name="LRchecktresh"          value="$(arg LRchecktresh)" />
@@ -47,9 +50,8 @@
         args="load depth_image_proc/point_cloud_xyzrgb nodelet_manager">
         <remap from="rgb/camera_info" to="/rgb_cloud_node/color/camera_info"/>
         <remap from="rgb/image_rect_color" to="/rgb_cloud_node/color/image"/>
-        <remap from="depth_registered/image_rect" to="/rgb_cloud_node/stereo/image"/>    
-        <remap from="cloud" to="/rgb_cloud_node/stereo/voxel cloud" />
-        <param name="voxel size" value="0.01" />
+        <remap from="depth_registered/image_rect" to="/rgb_cloud_node/stereo/depth"/>    
+        <remap from="depth_registered/points" to="/rgb_cloud_node/stereo/points"/>
     </node>
 
 </launch>
