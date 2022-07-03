@@ -52,6 +52,7 @@
         <remap from="rgb/image_rect_color" to="/rgb_cloud_node/color/image"/>
         <remap from="depth_registered/image_rect" to="/rgb_cloud_node/stereo/depth"/>    
         <remap from="depth_registered/points" to="/rgb_cloud_node/stereo/points"/>
+        <param name="queue_size" value="10"/>
     </node>
 
 </launch>
