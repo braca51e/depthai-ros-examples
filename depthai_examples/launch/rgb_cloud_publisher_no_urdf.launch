@@ -10,7 +10,7 @@
     <arg name="subpixel"              default="true"       />
     <arg name="rectify"               default="true"       />
     <arg name="depth_aligned"         default="true"      />
-    <arg name="publish_point_cloud"   default="true"      />
+    <arg name="publish_point_cloud"   default="false"      />
      <!-- see https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#currently-configurable-blocks for possible combination of optionf for higher fps-->
     <arg name="stereo_fps"            default="15"         />
     <arg name="confidence"            default="200"        />
@@ -39,9 +39,9 @@
         <param name="linearAccelCovariance" value="$(arg linearAccelCovariance)" />
     </node>            
 
-    <node pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager" output="screen"/>
+    <node if="$(eval arg('publish_point_cloud') == true)" pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager" output="screen"/>
 
-    <node pkg="nodelet" type="nodelet" name="depth_image_convertion_nodelet"
+    <node if="$(eval arg('publish_point_cloud') == true)" pkg="nodelet" type="nodelet" name="depth_image_convertion_nodelet"
         args="load depth_image_proc/convert_metric nodelet_manager">
         <remap from="image_raw" to="/rgb_cloud_node/stereo/depth"/>    
         <remap from="image" to="/rgb_cloud_node/stereo/image"/>
