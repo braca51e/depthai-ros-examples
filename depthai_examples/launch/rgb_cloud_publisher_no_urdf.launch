@@ -37,6 +37,11 @@
         <param name="monoResolution"        value="$(arg monoResolution)" />
         <param name="angularVelCovariance"  value="$(arg angularVelCovariance)" />
         <param name="linearAccelCovariance" value="$(arg linearAccelCovariance)" />
+        
+        <rosparam param="disable_pub_plugins">
+          - 'image_transport/compressedDepth'
+          - 'image_transport/theora'
+        </rosparam>
     </node>            
 
     <node if="$(eval arg('publish_point_cloud') == true)" pkg="nodelet" type="nodelet" name="nodelet_manager"  args="manager" output="screen"/>
